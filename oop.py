@@ -1,7 +1,7 @@
 students=[]
 class Student:
     #self is similar to this
-    school_name="MESCOE,pune"
+    school_name="R&DE School"
     def __init__(self,name, student_id=332):
         self.name=name
         self.student_id=student_id
@@ -17,6 +17,20 @@ class Student:
         return self.school_name
 
 
-student=Student("Jitendra")
+#Inheritance
 
-print(Student.school_name)
+class CollegeStudent(Student):
+    school_name = "MESCOE,Wadia"
+
+    #Overiding the parents memeber function
+    def get_school_name(self):
+        return "This is College Student"
+
+
+    #super keyword
+    def get_capital(self):
+        parent=super().get_capital()
+        return parent+" -CS"
+
+s=CollegeStudent("Jitendra")
+print(s.get_capital())
